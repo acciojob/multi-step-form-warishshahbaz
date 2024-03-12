@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 function Step(props) {
-  const { activeStep, handlePrev, handleNext } = props;
+  const { activeStep, handlePrev, handleNext, setActiveStep } = props;
   const [inputFileds, setInputFileds] = useState({
     fname: "",
     lname: "",
@@ -18,6 +18,7 @@ function Step(props) {
 
   const handleSubmit = () => {
     console.log("Submit", inputFileds);
+    setActiveStep(1);
   };
   return (
     <>

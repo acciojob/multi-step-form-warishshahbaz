@@ -22,6 +22,7 @@ const App = () => {
         activeStep={activeStep}
         handlePrev={handlePrev}
         handleNext={handleNext}
+        setActiveStep={setActiveStep}
       />
     </div>
   );
