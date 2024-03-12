@@ -1,13 +1,30 @@
-
-import React from "react";
-import './../styles/App.css';
+import React, { useState } from "react";
+import "./../styles/App.css";
+import Step from "./Step";
 
 const App = () => {
-  return (
-    <div>
-        {/* Do not remove the main div */}
-    </div>
-  )
-}
+  const [activeStep, setActiveStep] = useState(1);
 
-export default App
+  const handlePrev = () => {
+    if (activeStep > 1) {
+      setActiveStep((pre) => pre - 1);
+    }
+  };
+
+  const handleNext = () => {
+    if (activeStep < 3) {
+      setActiveStep((pre) => pre + 1);
+    }
+  };
+  return (
+    <div className="main">
+      <Step
+        activeStep={activeStep}
+        handlePrev={handlePrev}
+        handleNext={handleNext}
+      />
+    </div>
+  );
+};
+
+export default App;

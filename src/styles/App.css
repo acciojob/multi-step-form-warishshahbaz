@@ -1,1 +1,28 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
+.main {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+.box {
+  gap: 12;
+}
+.box input {
+  margin: 4px;
+  padding: 4px 12px;
+}
+
+.btn_box {
+  display: flex;
+  justify-content: center;
+  margin-top: 12px;
+}
+.btn_box button {
+  padding: 6px 12px;
+  margin: 0px 5px;
+}

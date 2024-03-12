@@ -12,13 +12,18 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@emotion/react": "^11.11.4",
+    "@emotion/styled": "^11.11.0",
+    "@mui/material": "^5.15.12",
+    "@mui/styled-engine-sc": "^6.0.0-alpha.17",
     "css-loader": "^4.3.0",
+    "cypress": "^9.5.0",
     "jest-junit": "^11.1.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "style-loader": "^1.2.1",
-    "webpack-cli": "^3.3.12",
-    "cypress": "^9.5.0"
+    "styled-components": "^6.1.8",
+    "webpack-cli": "^3.3.12"
   },
   "jest": {
     "moduleNameMapper": {
