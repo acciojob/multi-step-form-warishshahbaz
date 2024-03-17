@@ -55,10 +55,10 @@ function Step(props) {
             />
             <input
               id="car_price"
+              type="number"
               name="price"
               onChange={handleChange}
               placeholder="Car Price"
-              type="text"
             />
           </div>
         )}
