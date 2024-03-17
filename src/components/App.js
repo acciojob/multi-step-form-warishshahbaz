@@ -11,7 +11,8 @@ const App = () => {
     }
   };
 
-  const handleNext = () => {
+  const handleNext = (e) => {
+    e.preventDefault();
     if (activeStep < 3) {
       setActiveStep((pre) => pre + 1);
     }
