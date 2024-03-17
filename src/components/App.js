@@ -16,6 +16,7 @@ const App = () => {
       setActiveStep((pre) => pre + 1);
     }
   };
+  console.log("jii");
   return (
     <div className="main">
       <Step
