@@ -1,98 +1,71 @@
-import React, { useState } from "react";
+import React from "react";
 
-function Step(props) {
-  const { activeStep, handlePrev, handleNext, setActiveStep } = props;
-  const [inputFileds, setInputFileds] = useState({
-    fname: "",
-    lname: "",
-    modal: "",
-    price: "",
-    info: "",
-    expire_date: "",
-  });
+const Step = ({ stepNumber, currentStep, onNext, onPrev, onSubmit }) => {
+  const isActive = currentStep === stepNumber;
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setInputFileds({ ...inputFileds, [name]: value });
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log("Submit", inputFileds);
-    setActiveStep(1);
-  };
   return (
-    <>
-      <p>Step {activeStep}</p>
-      <form method="#">
-        {activeStep === 1 && (
-          <div className="box">
-            <form></form>
-            <input
-              id="firt_name"
-              name="fname"
-              onChange={handleChange}
-              placeholder="First Name"
-              type="text"
-            />
-            <input
-              id="last_name"
-              name="lname"
-              onChange={handleChange}
-              placeholder="Last Name"
-              type="text"
-            />
-          </div>
-        )}
-        {activeStep === 2 && (
-          <div className="box">
-            <input
-              id="modal"
-              name="modal"
-              onChange={handleChange}
-              placeholder="Modal"
-              type="text"
-            />
-            <input
-              id="car_price"
-              type="number"
-              name="price"
-              onChange={handleChange}
-              placeholder="Car Price"
-            />
-          </div>
-        )}
-        {activeStep === 3 && (
-          <div className="box">
-            <input
-              id="card_info"
-              name="info"
-              onChange={handleChange}
-              placeholder="Infomation"
-              type="text"
-            />
-            <input
-              id="expiry_date"
-              name="expire_date"
-              onChange={handleChange}
-              placeholder="Expire Date"
-              type="date"
-            />
-          </div>
-        )}
+    <div
+      className={`step ${isActive ? "active" : ""}`}
+      id={`step${stepNumber}`}
+    >
+      {stepNumber === 1 && (
+        <>
+          <label htmlFor="first_name">First Name:</label>
+          <input type="text" id="first_name" name="first_name" required />
 
-        <div className="btn_box">
-          <button onClick={handlePrev}>Prev</button>
-          {activeStep !== 3 && <button onClick={handleNext}>Next</button>}
-          {activeStep === 3 && (
-            <button type="submit" onClick={handleSubmit}>
-              Submit
-            </button>
-          )}
-        </div>
-      </form>
-    </>
+          <label htmlFor="last_name">Last Name:</label>
+          <input type="text" id="last_name" name="last_name" required />
+        </>
+      )}
+
+      {/* 
+efji3hrifhr3i
+
+frv34v2*/}
+      {stepNumber === 2 && (
+        <>
+          <label htmlFor="model">Car Model:</label>
+          <input type="text" id="model" name="model" required />
+
+          <label htmlFor="car_price">Car Price:</label>
+          <input type="number" id="car_price" name="car_price" required />
+        </>
+        // dvfrevfcefvrwb
+      )}
+
+      {stepNumber === 3 && (
+        <>
+          <label htmlFor="card_info">Card Number:</label>
+          <input type="text" id="card_info" name="card_info" required />
+
+          <label htmlFor="expiry_date">Expiry Date (MM/YY):</label>
+          <input
+            type="text"
+            id="expiry_date"
+            name="expiry_date"
+            pattern="\d{2}/\d{2}"
+            placeholder="MM/YY"
+            required
+          />
+        </>
+      )}
+
+      <div>
+        {stepNumber !== 1 && (
+          <button type="button" onClick={onPrev}>
+            Previous
+          </button>
+        )}
+        {stepNumber !== 3 ? (
+          <button type="button" onClick={onNext}>
+            Next
+          </button>
+        ) : (
+          <button type="submit">Submit</button>
+        )}
+      </div>
+    </div>
   );
-}
+};
 
 export default Step;

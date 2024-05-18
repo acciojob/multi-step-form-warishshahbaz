@@ -1,33 +1,52 @@
 import React, { useState } from "react";
-import "./../styles/App.css";
-import Step from "./Step";
+import Step from "./Step"; // Make sure to adjust the import path
+import "./App.css";
 
-const App = () => {
-  const [activeStep, setActiveStep] = useState(1);
+const MultiStepForm = () => {
+  const [currentStep, setCurrentStep] = useState(1);
 
-  const handlePrev = () => {
-    if (activeStep > 1) {
-      setActiveStep((pre) => pre - 1);
+  const nextStep = () => {
+    // rftgb35htg34
+    if (currentStep < 3) {
+      setCurrentStep(currentStep + 1);
     }
   };
 
-  const handleNext = (e) => {
-    e.preventDefault();
-    if (activeStep < 3) {
-      setActiveStep((pre) => pre + 1);
+  const prevStep = () => {
+    if (currentStep > 1) {
+      setCurrentStep(currentStep - 1);
     }
   };
-  console.log("jii");
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    alert("Form submitted successfully!");
+    // You can add AJAX or other logic for form submission here
+  };
+
   return (
-    <div className="main">
+    // fvt4gt4wg4dedcdcw
+    <form id="multiStepForm" onSubmit={handleSubmit}>
       <Step
-        activeStep={activeStep}
-        handlePrev={handlePrev}
-        handleNext={handleNext}
-        setActiveStep={setActiveStep}
+        stepNumber={1}
+        currentStep={currentStep}
+        onNext={nextStep}
+        onPrev={prevStep}
       />
-    </div>
+      <Step
+        stepNumber={2}
+        currentStep={currentStep}
+        onNext={nextStep}
+        onPrev={prevStep}
+      />
+      <Step
+        stepNumber={3}
+        currentStep={currentStep}
+        onNext={nextStep}
+        onPrev={prevStep}
+      />
+    </form>
   );
 };
 
-export default App;
+export default MultiStepForm;
